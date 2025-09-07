@@ -6,6 +6,7 @@ using namespace std;
 int main() {
 
     LinkedList<int> list;
+    cout << list.size()<< endl;
     list.push_front(10);
     list.push_front(1000);
     list.push_back(200);

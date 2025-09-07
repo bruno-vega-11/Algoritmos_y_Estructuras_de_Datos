@@ -35,22 +35,28 @@ public:
         cout << endl;
     }
     T front() {
+        if (empty()) throw std::runtime_error("Lista vacía");
         return head->val;
     }
     T back() {
+        if (empty()) throw std::runtime_error("Lista vacía");
         Node<T>* temp = head;
         while (temp->next != nullptr) {
             temp= temp->next;
         }
-        return temp;
+        return temp->val;
     }
     void push_front(T valor) {
         auto* new_head = new Node<T>(valor,head);
         head = new_head;
     }
     void push_back(T valor) {
-        Node<T>* temp = head;
         auto* new_element = new Node<T>(valor,nullptr);
+        if (empty()) {
+            head = new_element;
+            return;
+        }
+        Node<T>* temp = head;
         while (temp->next != nullptr) {
             temp = temp->next;
         }
