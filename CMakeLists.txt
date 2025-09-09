@@ -4,4 +4,5 @@ project(HW_1)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(HW_1 main.cpp
-        LinkedList.h)
+        LinkedList.h
+        "Circular Doubly Linked List.h")
