@@ -14,7 +14,7 @@ struct Node {
     T val;
     Node* next;
     Node* prev;
-    explicit Node(int _val):val(_val),next(nullptr),prev(nullptr){};
+    explicit Node(T _val):val(_val),next(nullptr),prev(nullptr){};
 };
 
 template<typename T>
@@ -24,7 +24,7 @@ private:
     int size_ = 0;
 public:
     CDLinkedList():head(nullptr){};
-    ~CDLinkedList()= default;
+    ~CDLinkedList(){clear();};
 
     T front() {
         return head->val;
@@ -37,8 +37,8 @@ public:
     void push_front(T value) {
         auto new_node = new Node<T>(value);
         if (head == nullptr) {
-            new_node->next = head;
-            new_node->prev = head;
+            new_node->next = new_node;
+            new_node->prev = new_node;
             head = new_node;
         } else {
             new_node->next = head;
@@ -105,6 +105,7 @@ public:
             head = new_node;
             new_node->next = new_node;
             new_node->prev = new_node;
+            size_++;
             return;
         }
         if (posicion<0)throw out_of_range("Rango Invalido");
@@ -121,6 +122,7 @@ public:
         temp->prev->next = new_node;
         temp->prev = new_node;
         if (posicion % size() == 0) head = new_node;
+        size_++;
     }
 
     void remove(int position) {
