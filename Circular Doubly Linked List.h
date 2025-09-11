@@ -31,7 +31,7 @@ public:
     }
 
     T back() {
-        return head->val;
+        return head->prev->val;
     }
 
     void push_front(T value) {
