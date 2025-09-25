@@ -6,4 +6,6 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(HW_1 main.cpp
         LinkedList.h
         "Circular Doubly Linked List.h"
-        Stack.h)
+        Stack.h
+        Hash.h
+        BST.h)
